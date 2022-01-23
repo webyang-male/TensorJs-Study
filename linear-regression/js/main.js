@@ -65,13 +65,19 @@ window.onload = async () => {
     while (true) {
       initialFn(newInputValue);
     }
-  } else {
+  } else if (flag != true) {
+    confirm("请输入数字!");
     while (true) {
-      confirm("请输入大于0的数字好嘛亲?");
+      let userInputValue = prompt("您要输入预测Y轴值的X值为", "");
+      let newInputValue = Number(userInputValue);
       initialFn(newInputValue);
-      if (flag && newInputValue > 0) {
-        initialFn(newInputValue);
-      }
+    }
+  } else if (flag && newInputValue <= 0) {
+    confirm("请输入大于0的数字好嘛亲?");
+    while (true) {
+      let userInputValue = prompt("您要输入预测Y轴值的X值为", "");
+      let newInputValue = Number(userInputValue);
+      initialFn(newInputValue);
     }
   }
 };
