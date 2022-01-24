@@ -1,6 +1,20 @@
 import * as tfvis from "@tensorflow/tfjs-vis";
 import * as tf from "@tensorflow/tfjs";
 
+let maxFn = () => {
+  let maxScreen = document.querySelector(
+    "#tfjs-visor-container > div > div.css-mmb2gq.visor-controls > button:nth-child(1)"
+  );
+  if (maxScreen != undefined) {
+    maxScreen.onclick = () => {
+      console.log("maxScreen");
+    };
+    maxScreen.click();
+  } else {
+    console.log("maxScreen is undefined");
+  }
+};
+
 window.onload = async () => {
   const xs = [1, 2, 3, 4];
   const ys = [1, 3, 5, 7];
@@ -13,6 +27,8 @@ window.onload = async () => {
     { xAxisDomain: [0, 5], yAxisDomain: [0, 10] }
   );
 
+  maxFn();
+  
   const model = tf.sequential(); //创建连续模型
   //模型添加层
   model.add(tf.layers.dense({ inputShape: [1], units: 1, useBias: true }));
@@ -39,17 +55,6 @@ window.onload = async () => {
     ),
   });
 
-  let maxScreen = document.querySelector(
-    "#tfjs-visor-container > div > div.css-mmb2gq.visor-controls > button:nth-child(1)"
-  );
-  if (maxScreen != undefined) {
-    maxScreen.onclick = () => {
-      console.log("maxScreen");
-    };
-    maxScreen.click();
-  }else{
-    console.log("maxScreen is undefined");
-  }
 
   //计算模型预测值
 
