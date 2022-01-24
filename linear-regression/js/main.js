@@ -63,9 +63,7 @@ window.onload = async () => {
  
 
   if (flag && newInputValue > 0) {
-    while (true) {
       initialFn(newInputValue);
-    }
   } else if (flag != true) {
     confirm("非法输入!请输入大于0的数字:>");
     let userInputValue = prompt("您要输入预测Y轴值的X值为", "");
