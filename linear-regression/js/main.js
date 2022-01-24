@@ -60,24 +60,23 @@ window.onload = async () => {
       );
     }
   };
+ 
 
   if (flag && newInputValue > 0) {
     while (true) {
       initialFn(newInputValue);
     }
   } else if (flag != true) {
-    confirm("请输入数字!");
-    while (true) {
-      let userInputValue = prompt("您要输入预测Y轴值的X值为", "");
-      let newInputValue = Number(userInputValue);
-      initialFn(newInputValue);
-    }
-  } else if (flag && newInputValue <= 0) {
+    confirm("非法输入!请输入大于0的数字:>");
+    let userInputValue = prompt("您要输入预测Y轴值的X值为", "");
+    let newInputValue = Number(userInputValue);
+    initialFn(newInputValue);
+  } else if (flag && newInputValue < 0) {
     confirm("请输入大于0的数字好嘛亲?");
-    while (true) {
-      let userInputValue = prompt("您要输入预测Y轴值的X值为", "");
-      let newInputValue = Number(userInputValue);
-      initialFn(newInputValue);
-    }
+    let userInputValue = prompt("您要输入预测Y轴值的X值为", "");
+    let newInputValue = Number(userInputValue);
+    initialFn(newInputValue);
+  } else if (newInputValue == 0) {
+    return false;
   }
 };
