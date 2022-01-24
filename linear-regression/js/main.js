@@ -39,6 +39,18 @@ window.onload = async () => {
     ),
   });
 
+  let maxScreen = document.querySelector(
+    "#tfjs-visor-container > div > div.css-mmb2gq.visor-controls > button:nth-child(1)"
+  );
+  if (maxScreen != undefined) {
+    maxScreen.onclick = () => {
+      console.log("maxScreen");
+    };
+    maxScreen.click();
+  }else{
+    console.log("maxScreen is undefined");
+  }
+
   //计算模型预测值
 
   // const output = model.predict(tf.tensor([5])); //输入值
@@ -60,10 +72,9 @@ window.onload = async () => {
       );
     }
   };
- 
 
   if (flag && newInputValue > 0) {
-      initialFn(newInputValue);
+    initialFn(newInputValue);
   } else if (flag != true) {
     confirm("非法输入!请输入大于0的数字:>");
     let userInputValue = prompt("您要输入预测Y轴值的X值为", "");
