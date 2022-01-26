@@ -5,3 +5,4 @@ TensorFlow.js 初学代码
 根目录执行以下命令
 - npm i -S-D 安装项目依赖
 - parcel li*/*html     运行线性回归案例
+- parcel hei*/*html    运行归一化案例
