@@ -1,1 +1,83 @@
-<script src="/ts.145d19b3.js"></script>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>TensorFlow案例首页 | Zain</title>
+    <style>
+      body,
+      p,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      ul,
+      ol,
+      dl,
+      dt,
+      dd {
+        margin: 0;
+        padding: 0;
+      }
+      ul,
+      ol {
+        list-style: none;
+      }
+      a {
+        text-decoration: none;
+      }
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        vertical-align: middle;
+        text-align: center;
+        background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+      }
+      .mainBox {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+      }
+      @media screen and (max-width: 768px) {
+        .mainBox {
+          flex-direction: column;
+        }
+      }
+
+      .tfBox {
+        min-width: 25%;
+        min-height: 300px;
+        background-color: aquamarine;
+        margin-top: 3%;
+        border-radius: 15px;
+      }
+      .tfBox:nth-child(1) {
+        background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+      }
+      .tfBox:nth-child(2) {
+        background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+      }
+      .tfBox:nth-child(3) {
+        background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="mainBox">
+      <div class="tfBox" id="linear"></div>
+      <div class="tfBox" id="hw"></div>
+      <div class="tfBox" id="logi"></div>
+    </div>
+    <iframe src="logistic-regression.html"></iframe>
+    <script>
+      let linear = document.getElementById("linear");
+      let hw = document.getElementById("hw");
+      let logi = document.getElementById("logi");
+    </script>
+  </body>
+</html>
