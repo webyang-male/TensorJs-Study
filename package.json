@@ -7,11 +7,12 @@
     "@tensorflow-models/speech-commands": "^0.4.2",
     "@tensorflow/tfjs": "^1.7.4",
     "@tensorflow/tfjs-node": "^1.7.4",
-    "@tensorflow/tfjs-vis": "^1.2.0"
+    "@tensorflow/tfjs-vis": "^1.2.0",
+    "parcel": "^2.2.1"
   },
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "run-h":"parcel  ./height-weight/heiwei.html"
   },
   "author": "",
   "license": "ISC",

@@ -6,3 +6,7 @@ u.sh
 !dist/
 setup/
 .vscode/
+.parcel-cache
+pnpm-lock.yaml
+./dist/*
+/dist
