@@ -4,5 +4,5 @@ node_modules
 u.sh
 !dist/
 setup/
-.vscode/
+.vscode
 backup.md

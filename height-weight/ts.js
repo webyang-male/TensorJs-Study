@@ -50,10 +50,21 @@ window.onload = async function () {
     callbacks: tfvis.show.fitCallbacks({ name: "训练过程" }, ["loss"]),
   });
 
+  input();
+};
+
+function input() {
   let userInputValue = prompt(
     "请输入您要预测Y轴体重所对应的X轴身高数值(cm)\n只写数值不加单位,Thanks♪(･ω･)ﾉ",
     ""
   );
+
+  // 点击取消返回null 退出
+  if (userInputValue == null) {
+    // 刷新页面
+    window.location.reload();
+    return false;
+  }
   let newInputValue = Number(userInputValue);
   let flag = Number.isFinite(newInputValue);
 
@@ -64,6 +75,7 @@ window.onload = async function () {
         output.mul(20).add(40).dataSync()[0]
       }kg`
     );
+    return input();
   } else if (flag != true) {
     let userInputValue = prompt(
       "⚠️输入的数据不合法，请重新输入\n您要输入预测 Y轴[体重]值 的 X[身高] 值为",
@@ -76,10 +88,12 @@ window.onload = async function () {
         output.mul(20).add(40).dataSync()[0]
       }kg`
     );
-  } else if (newInputValue === 0) {
-    alert("输个空值?奶奶滴跟我玩阴滴是吧😅\n刷新页面重新来过吧");
+    return input();
   } else if (newInputValue < 0) {
     confirm("OMG!您一定是二维生物吧,身高都降维了(负值)!😂\n刷新页面重新来过吧");
+    // 刷新页面
+    window.location.reload();
+    return false;
   } else if (newInputValue > 0 && newInputValue < 150) {
     confirm("您的身高还没纳入到训练范围哦(0cm<身高<=150cm)!");
     let userInputValue = prompt(
@@ -93,7 +107,7 @@ window.onload = async function () {
         output.mul(20).add(40).dataSync()[0]
       }kg`
     );
-  }else{
-      alert("来访者到底输入了什么未知内容嫩?")
+    return input();
   }
-};
+}
+//zain
