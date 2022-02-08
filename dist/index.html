@@ -125,7 +125,7 @@
   <body>
     <div class="container-fluid">
       <div class="row">
-        <div class="col m-2 tfBox">
+        <div class="col m-2 tfBox" id="linear">
           <img
             class="img-fluid"
             src="https://gitee.com/initzzy/blog-image/raw/master/tf-linearRegress.png"
@@ -133,7 +133,7 @@
             tile="线性回归"
           />
         </div>
-        <div class="col m-2 tfBox">
+        <div class="col m-2 tfBox" id="hw">
           <img
             class="img-fluid"
             src="https://gitee.com/initzzy/blog-image/raw/master/tf-heiweiPre.png"
@@ -141,7 +141,7 @@
             tile="归一化"
           />
         </div>
-        <div class="col m-2 tfBox">
+        <div class="col m-2 tfBox" id="logi">
           <img
             class="img-fluid"
             src="https://gitee.com/initzzy/blog-image/raw/master/tf-logic.png"
@@ -149,7 +149,7 @@
             tile="逻辑回归"
           />
         </div>
-        <div class="col m-2 tfBox">
+        <div class="col m-2 tfBox" id="xor">
           <img
             class="img-fluid"
             src="https://cdn.jsdelivr.net/gh/webyang-male/yangimgs/xor.png"
@@ -160,37 +160,19 @@
       </div>
     </div>
 
-    <!-- <div class="grid">
-      <div class="g-col-4 tfBox">
-        <img
-          class="img-fluid"
-          src="https://gitee.com/initzzy/blog-image/raw/master/tf-linearRegress.png"
-          alt="线性回归"
-        />
-      </div>
-      <div class="g-col-4 tfBox">
-        <img
-          class="img-fluid"
-          src="https://gitee.com/initzzy/blog-image/raw/master/tf-heiweiPre.png"
-          alt="归一化"
-        />
-      </div>
-      <div class="g-col-4 tfBox">
-        <img
-          class="img-fluid"
-          src="https://gitee.com/initzzy/blog-image/raw/master/tf-logic.png"
-          alt="逻辑回归"
-        />
-      </div>
-    </div> -->
-
     <script>
+      //获取元素
       let linear = document.getElementById("linear");
       let hw = document.getElementById("hw");
       let logi = document.getElementById("logi");
+      let xor = document.getElementById("xor");
+
+      //路由拼接获取
       let localHref = window.location.href;
       let ol = document.getElementsByTagName("ol")[0];
       const str = "/";
+
+      //业务
       window.onload = function () {
         if (localHref != undefined || null) {
           //线性回归
@@ -204,6 +186,10 @@
           //逻辑回归
           logi.onclick = function () {
             window.location.href = localHref + str + "logistic-regression.html";
+          };
+          //多层神经网络
+          xor.onclick = function () {
+            window.location.href = localHref + str + "xor.html";
           };
         } else {
           confirm("页面url路径错误");
