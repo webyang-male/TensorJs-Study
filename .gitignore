@@ -1,8 +1,8 @@
 node_modules
 .dist/
-dist
 .cache
 u.sh
 !dist/
 setup/
 .vscode/
+backup.md
