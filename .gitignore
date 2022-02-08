@@ -6,3 +6,4 @@ u.sh
 setup/
 .vscode
 backup.md
+dist/*.js.map

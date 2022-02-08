@@ -1,1 +1,69 @@
-import * as tfvis from '@tensorflow/tfjs-vis';
+import * as tf from "@tensorflow/tfjs";
+import * as tfvis from "@tensorflow/tfjs-vis";
+import { getData } from "./xordata.js";
+
+window.onload = async () => {
+  const data = getData(400);
+
+  tfvis.render.scatterplot(
+    { name: "XOR 训练数据" },
+    {
+      values: [
+        data.filter((p) => p.label === 1),
+        data.filter((p) => p.label === 0),
+      ],
+    }
+  );
+
+  const model = tf.sequential();
+  model.add(
+    tf.layers.dense({
+      units: 4,
+      inputShape: [2],
+      activation: "relu",
+    })
+  );
+  model.add(
+    tf.layers.dense({
+      units: 1,
+      activation: "sigmoid",
+    })
+  );
+
+  //全屏
+  let maxFn = () => {
+    let maxScreen = document.querySelector(
+      "#tfjs-visor-container > div > div.css-mmb2gq.visor-controls > button:nth-child(1)"
+    );
+    if (maxScreen != undefined) {
+      maxScreen.onclick = () => {
+        console.log("maxScreen");
+      };
+      maxScreen.click();
+    } else {
+      console.log("maxScreen is undefined");
+    }
+  };
+
+  maxFn();
+
+  model.compile({
+    loss: tf.losses.logLoss,
+    optimizer: tf.train.adam(0.1),
+  });
+
+  const inputs = tf.tensor(data.map((p) => [p.x, p.y]));
+  const labels = tf.tensor(data.map((p) => p.label));
+
+  await model.fit(inputs, labels, {
+    epochs: 10,
+    callbacks: tfvis.show.fitCallbacks({ name: "训练效果" }, ["loss"]),
+  });
+
+  window.predict = (form) => {
+    const pred = model.predict(
+      tf.tensor([[form.x.value * 1, form.y.value * 1]])
+    );
+    alert(`预测结果：${pred.dataSync()[0]}`);
+  };
+};

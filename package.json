@@ -6,10 +6,11 @@
   "dependencies": {
     "@tensorflow-models/speech-commands": "^0.4.2",
     "@tensorflow/tfjs": "^1.7.4",
+    "@tensorflow/tfjs-core": "^1.7.4",
     "@tensorflow/tfjs-node": "^1.7.4",
-    "@tensorflow/tfjs-vis": "^1.2.0"
+    "@tensorflow/tfjs-vis": "^1.5.1",
+    "x": "^0.1.2"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

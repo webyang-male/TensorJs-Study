@@ -15,9 +15,10 @@ Or when using npm run:
 ### 项目运行
 根目录执行以下命令
 - npm i -S-D 安装项目依赖
-- parcel li*/*html     运行线性回归案例
-- parcel he*/*html    运行归一化案例
-- parcel log*/*html    运行逻辑回归案例
+- parcel li*/*html     运行线性回归
+- parcel he*/*html     运行归一化
+- parcel log*/*html    运行逻辑回归
+- parcel xor*/*html    运行多层神经网络
 
 ### bug
   parcel 打包时出现 FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of 
